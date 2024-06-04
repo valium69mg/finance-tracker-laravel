@@ -18,11 +18,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    // INCOMES
     Route::get('/addIncome',[IncomeController::class,'getAddIncome'])->name('addIncome');
-    Route::get('/addExpense',[ExpensesController::class,'getAddExpense'])->name('addExpense');
-    Route::get('/addBill',[BillsController::class,'getAddBill'])->name('addBill');
     Route::post('/setIncome',[IncomeController::class,'setIncome'])->name('setIncome');
+    // EXPENSES
+    Route::get('/addExpense',[ExpensesController::class,'getAddExpense'])->name('addExpense');
     Route::post('/setExpense',[ExpensesController::class,'setExpense'])->name('setExpense');
+    // BILLS
+    Route::get('/addBill',[BillsController::class,'getAddBill'])->name('addBill');
     Route::post('/setBill',[BillsController::class,'setBill'])->name('setBill');
 });
 
