@@ -28,4 +28,14 @@ class BillsController extends Controller
         $bill->save();
         return redirect()->back();
     }
+
+    public function showBills() {
+        $user=Auth::user();
+        if ($user==null){
+            return view("login");
+        } else {
+            $bills = Bills::where("userid",$user->id)->get();
+            return view("show-bills",compact("bills"));
+        }
+    }
 }
