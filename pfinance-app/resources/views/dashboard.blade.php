@@ -95,6 +95,14 @@
       </script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
       <style>
+            a {
+              text-decoration:none;
+
+            }
+
+            a:hover{
+              text-decoration:none;
+            }
             .dashboard {
               position:absolute;
                 left: 50%;
@@ -107,8 +115,7 @@
                 gap: 24px;
                 width: 1400px;
                 height: 700px;
-                background-color: white;
-                box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.75);
+                background-color: transparent;
                 padding: 12px 24px;
             }
 
@@ -128,7 +135,7 @@
                 align-items: center;
                 box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
                 padding: 12px 24px;
-                background-color: rgb(243 244 246);
+                background-color: white;
                 width: 25%;
             }
 
@@ -163,7 +170,7 @@
               width: auto;
               box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
               padding: 12px 24px;
-              background-color: rgb(243 244 246);;
+              background-color: white;
             }
 
             .logContainer {
@@ -174,7 +181,7 @@
               height: fit-content;
               width: auto;
               padding: 12px 24px;
-              background-color: rgb(243 244 246);;
+              background-color: white;
               box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
             }
       </style>
