@@ -26,7 +26,7 @@ class BillsController extends Controller
         $bill->description = $concept;
         $bill->category = $category;
         $bill->save();
-        return redirect()->back();
+        return redirect('/showBills');
     }
 
     public function showBills() {

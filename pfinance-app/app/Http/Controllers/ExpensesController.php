@@ -27,7 +27,7 @@ class ExpensesController extends Controller
         $expense->concept = $concept;
         $expense->category = $category;
         $expense->save();
-        return redirect()->back();
+        return redirect('/showExpenses');
     }
 
     public function showExpenses(){ 
