@@ -41,6 +41,32 @@
       </script>
     
        <!-- Dashboard -->
+       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+      <script type="text/javascript">
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+  
+        function drawChart() {
+          var data = google.visualization.arrayToDataTable([
+            ['Year', 'Income', 'Expenses'],
+            ['January',  1000,      400],
+            ['February',  1170,      460],
+            ['March',  660,       1120],
+            ['April',  1030,      540]
+          ]);
+  
+          var options = {
+            title: 'Income vs Expenses',
+            curveType: 'function',
+            legend: { position: 'bottom' }
+          };
+  
+          var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+  
+          chart.draw(data, options);
+        }
+      </script>
       <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
       <script type="text/javascript">
         google.charts.load("current", {packages:["corechart"]});
@@ -69,24 +95,19 @@
       </script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
       <style>
-
-            a {
-                text-decoration: none;
-            }
-
             .dashboard {
-                position: absolute;
-                left:50%;
-                top:50%;
-                transform:translate(-50%,-50%);
+              position:absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%,-50%);
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
                 gap: 24px;
-                width: 1200px;
+                width: 1400px;
                 height: 700px;
-                background-color: #EEF7FF;
+                background-color: white;
                 box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.75);
                 padding: 12px 24px;
             }
@@ -107,7 +128,7 @@
                 align-items: center;
                 box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
                 padding: 12px 24px;
-                background-color: white;
+                background-color: rgb(243 244 246);
                 width: 25%;
             }
 
@@ -117,8 +138,6 @@
               justify-content: center;
               padding: 12px 24px;
               align-items: start;
-              background-color: white;
-              box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
               column-gap: 78px;
             }
 
@@ -142,7 +161,9 @@
               gap: 6px;
               height: fit-content;
               width: auto;
-              width: 25%;
+              box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
+              padding: 12px 24px;
+              background-color: rgb(243 244 246);;
             }
 
             .logContainer {
@@ -152,12 +173,10 @@
               gap: 6px;
               height: fit-content;
               width: auto;
-              width: 25%;
+              padding: 12px 24px;
+              background-color: rgb(243 244 246);;
+              box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
             }
-
-
-           
-
       </style>
     </head>
     <body class="font-sans antialiased">
