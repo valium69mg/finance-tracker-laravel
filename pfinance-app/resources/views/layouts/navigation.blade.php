@@ -36,6 +36,11 @@
                         {{ __('Show Income') }}
                     </x-nav-link>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('showExpenses')" :active="request()->routeIs('showExpenses')">
+                        {{ __('Show Expenses') }}
+                    </x-nav-link>
+                </div>
             </div>
 
             <!-- Settings Dropdown -->

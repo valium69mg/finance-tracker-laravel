@@ -29,4 +29,14 @@ class ExpensesController extends Controller
         $expense->save();
         return redirect()->back();
     }
+
+    public function showExpenses(){ 
+        $user=Auth::user();
+        if ($user) {
+            $expenses = Expenses::where("userid",$user->id)->get();
+            return view("show-expenses",compact("expenses"));
+        } else {
+            return redirect('login');
+        }
+    }
 }

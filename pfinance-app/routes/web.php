@@ -25,6 +25,8 @@ Route::middleware('auth')->group(function () {
     // EXPENSES
     Route::get('/addExpense',[ExpensesController::class,'getAddExpense'])->name('addExpense');
     Route::post('/setExpense',[ExpensesController::class,'setExpense'])->name('setExpense');
+    Route::get('/showExpenses',[ExpensesController::class,'showExpenses'])->name('showExpenses');
+
     // BILLS
     Route::get('/addBill',[BillsController::class,'getAddBill'])->name('addBill');
     Route::post('/setBill',[BillsController::class,'setBill'])->name('setBill');
