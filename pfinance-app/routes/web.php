@@ -21,6 +21,7 @@ Route::middleware('auth')->group(function () {
     // INCOMES
     Route::get('/addIncome',[IncomeController::class,'getAddIncome'])->name('addIncome');
     Route::post('/setIncome',[IncomeController::class,'setIncome'])->name('setIncome');
+    Route::get('/showIncome',[IncomeController::class,'showIncome'])->name('showIncome');
     // EXPENSES
     Route::get('/addExpense',[ExpensesController::class,'getAddExpense'])->name('addExpense');
     Route::post('/setExpense',[ExpensesController::class,'setExpense'])->name('setExpense');

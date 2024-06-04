@@ -27,6 +27,15 @@ class IncomeController extends Controller
         $income->concept = $concept;
         $income->category = $category;
         $income->save();
-        return redirect()->back();
+        return redirect('/showIncome');
+    }
+    public function showIncome() {
+        $user=Auth::user();
+        if ($user) {
+            $incomes = Income::where("userid",$user->id)->get();
+            return view("show-income",compact("incomes"));
+        } else {
+            return redirect('login');
+        }
     }
 }
