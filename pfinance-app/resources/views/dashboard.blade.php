@@ -196,36 +196,53 @@
                 <div class="cards">
                 <div class="card">
                     <div class="category">
-                    <h2> Remaining</h2>
+                    <h2> Bills </h2>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-wallet2" viewBox="0 0 16 16">
                     <path d="M12.136.326A1.5 1.5 0 0 1 14 1.78V3h.5A1.5 1.5 0 0 1 16 4.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 13.5v-9a1.5 1.5 0 0 1 1.432-1.499zM5.562 3H13V1.78a.5.5 0 0 0-.621-.484zM1.5 4a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5z"/>
                     </svg>
                     </div>
-                    <p> Apr 04 - May 04, 2024</p>
+                    @if (isset($dates))
+                    <p> {{$dates['nowMinusOneMonthDay'].' '.$dates['nowMinusOneMonthMonth'].', '.$dates['nowMinusOneMonthYear']}} to {{$dates['nowDay'].' '.$dates['nowMonth'].', '.$dates['nowYear']}}  </p>
+                    @endif
+                    @if (isset($totalBills))
+                    <h1> ${{$totalBills}}</h1>
+                    @else
                     <h1> $1200.20</h1>
-                    <p> <span> +10% from last period </span></p>
+                    @endif
                 </div>
                     <div class="card">
                     <div class="category">
                     <h2> Income</h2>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="red" class="bi bi-arrow-down-left" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M2 13.5a.5.5 0 0 0 .5.5h6a.5.5 0 0 0 0-1H3.707L13.854 2.854a.5.5 0 0 0-.708-.708L3 12.293V7.5a.5.5 0 0 0-1 0z"/>
-                    </svg>
-                    </div>
-                    <p> Apr 04 - May 04, 2024</p>
-                    <h1> $8230.94</h1>
-                    <p> <span> -14% from last period </span></p>
-                </div>
-                    <div class="card">
-                    <div class="category">
-                    <h2> Expenses </h2>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="green" class="bi bi-arrow-up-right" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0z"/>
                     </svg>
                     </div>
-                    <p> Apr 04 - May 04, 2024</p>
-                    <h1> $2384.83</h1>
-                    <p> <span> -9% from last period </span></p>
+                    @if (isset($dates))
+                    <p> {{$dates['nowMinusOneMonthDay'].' '.$dates['nowMinusOneMonthMonth'].', '.$dates['nowMinusOneMonthYear']}} to {{$dates['nowDay'].' '.$dates['nowMonth'].', '.$dates['nowYear']}}  </p>
+                    @endif
+                    @if (isset($totalIncome))
+                    <h1> ${{$totalIncome}}</h1>
+                    @else
+                    <h1> ${{'8230.94'}}</h1>
+                    @endif
+                  
+                </div>
+                    <div class="card">
+                    <div class="category">
+                    <h2> Expenses </h2>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="red" class="bi bi-arrow-down-left" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M2 13.5a.5.5 0 0 0 .5.5h6a.5.5 0 0 0 0-1H3.707L13.854 2.854a.5.5 0 0 0-.708-.708L3 12.293V7.5a.5.5 0 0 0-1 0z"/>
+                    </svg>
+                    
+                    </div>
+                    @if (isset($dates))
+                    <p> {{$dates['nowMinusOneMonthDay'].' '.$dates['nowMinusOneMonthMonth'].', '.$dates['nowMinusOneMonthYear']}} to {{$dates['nowDay'].' '.$dates['nowMonth'].', '.$dates['nowYear']}}  </p>
+                    @endif
+                    @if (isset($totalExpenses))
+                    <h1> ${{$totalExpenses}}</h1>
+                    @else
+                    <h1> ${{'8230.94'}}</h1>
+                    @endif                   
                 </div>
                 </div>
                 <div class="charts">
