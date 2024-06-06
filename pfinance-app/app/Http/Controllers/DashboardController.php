@@ -85,7 +85,9 @@ class DashboardController extends Controller
                 'nowMinusOneMonthYear' => $nowMinusOneMonthYear,
                 'nowMinusOneMonthDay' => $nowMinusOneMonthDay,
             ];
-            return view("dashboard",compact("totalIncome","totalExpenses","totalBills","dates"));
+            // LOG OF bills
+            $loggedBills = DB::table('bills')->whereRaw('created_at > NOW() - INTERVAL 1 MONTH AND userid = ?',[Auth::user()->id])->take(3)->get();
+            return view("dashboard",compact("totalIncome","totalExpenses","totalBills","dates","loggedBills"));
         } else {
             return view("login");
         }

@@ -142,6 +142,7 @@
             .charts {
               width: 100%;
               display:flex;
+              flex-direction:row;
               justify-content: center;
               padding: 12px 24px;
               align-items: start;
@@ -183,6 +184,10 @@
               padding: 12px 24px;
               background-color: white;
               box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
+            }
+
+            .redText {
+              color:red;
             }
       </style>
     </head>
@@ -246,6 +251,37 @@
                 </div>
                 </div>
                 <div class="charts">
+                    @if (isset($loggedBills))
+                    <div class="logContainer">
+                    <h2> Bills Log </h2>
+                    @foreach ($loggedBills as $bill)
+                    <div class="chartWrapper">
+                          <h3> <span class="redText">-${{$bill->amount}}</span></h2>
+                          @if (strlen($bill->description) > 15)
+                          <p> {{substr($bill->description,0,15).'...'}} </p>
+                          @else 
+                          <p> {{$bill->description}}</p>
+                          @endif
+                      </div>
+                    @endforeach  
+                    </div> 
+                    @else
+                    <div class="logContainer">
+                    <h2> Log </h2>
+                      <div class="chartWrapper">
+                          <h3> $1200</h2>
+                          <p> Bank of America - Mortgage </p>
+                      </div>
+                      <div class="chartWrapper">
+                          <h3> $1200</h2>
+                          <p> Bank of America - Mortgage </p>
+                          </div>
+                      <div class="chartWrapper">
+                          <h3> $1200</h2>
+                          <p> Bank of America - Mortgage </p>
+                          </div>
+                      </div>
+                    @endif  
                     <div class="chartContainer">
                     <h1> Transactions </h1>
                     <div class="chartWrapper">
@@ -258,21 +294,7 @@
                     <div id="donutchart" style="width: 400px; height: 250px;"></div>
                     </div>
                     </div>  
-                    <div class="logContainer">
-                    <h2> Log </h2>
-                    <div class="chartWrapper">
-                    <h3> $1200</h2>
-                    <p> Bank of America - Mortgage </p>
-                    </div>
-                    <div class="chartWrapper">
-                        <h3> $1200</h2>
-                        <p> Bank of America - Mortgage </p>
-                        </div>
-                        <div class="chartWrapper">
-                        <h3> $1200</h2>
-                        <p> Bank of America - Mortgage </p>
-                        </div>
-                    </div>  
+                     
                 </div>    
             </div>
    
