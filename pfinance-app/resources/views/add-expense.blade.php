@@ -70,7 +70,6 @@
                             <option value="Transport">Transport</option>
                             <option value="Food">Food</option>
                             <option value="Investment">Investment</option>
-                            <option value="Bills">Bills</option>
                             <option value="Entertainment">Entertainment</option>
                             <option value="Other">Other</option>
                         </select>

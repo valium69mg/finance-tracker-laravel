@@ -48,13 +48,35 @@
         google.charts.setOnLoadCallback(drawChart);
   
         function drawChart() {
+          
+          @if (isset($vsData))
+          var data = google.visualization.arrayToDataTable([
+            ['Year', 'Income', 'Expenses'],
+            ['January',  {{$vsData['janInc']}},{{$vsData['janExp']}}],
+            ['February',  {{$vsData['febInc']}},{{$vsData['febExp']}}],
+            ['March',  {{$vsData['marchInc']}},{{$vsData['marchExp']}}],
+            ['April',  {{$vsData['aprilInc']}},{{$vsData['aprilExp']}}],
+            ['May',  {{$vsData['mayInc']}},{{$vsData['mayExp']}}],
+            ['June',  {{$vsData['junInc']}},{{$vsData['junExp']}}],
+            ['July',  {{$vsData['julyInc']}},{{$vsData['julyExp']}}],
+            ['August',  {{$vsData['augInc']}},{{$vsData['augExp']}}],
+            ['September',  {{$vsData['sepInc']}},{{$vsData['sepExp']}}],
+            ['October',  {{$vsData['octInc']}},{{$vsData['octExp']}}],
+            ['November',  {{$vsData['novInc']}},{{$vsData['novExp']}}],
+            ['December',  {{$vsData['dicInc']}},{{$vsData['dicExp']}}]
+          ]);
+          @else
           var data = google.visualization.arrayToDataTable([
             ['Year', 'Income', 'Expenses'],
             ['January',  1000,      400],
             ['February',  1170,      460],
             ['March',  660,       1120],
-            ['April',  1030,      540]
+            ['April',  1030,      540],
+            ['May',  1030,      540],
+            ['June',  1030,      540]
           ]);
+          @endif
+          
   
           var options = {
             title: 'Income vs Expenses',
@@ -72,6 +94,18 @@
         google.charts.load("current", {packages:["corechart"]});
         google.charts.setOnLoadCallback(drawChart);
         function drawChart() {
+          @if (isset($pieData))
+          var data = google.visualization.arrayToDataTable([
+            ['Expenses', 'Percentage'],
+            ['Rent',    {{$pieData['rent']}} ],
+            ['Transportation',   {{$pieData['transport']}} ],
+            ['Groceries', {{$pieData['groceries']}} ],
+            ['Food',  {{$pieData['food']}} ],
+            ['Entertainment',  {{$pieData['entertainment']}} ],
+            ['Investment', {{$pieData['investment']}} ],
+            ['Other',    {{$pieData['other']}} ]
+          ]);
+          @else
           var data = google.visualization.arrayToDataTable([
             ['Expenses', 'Percentage'],
             ['Rent',    10 ],
@@ -83,6 +117,8 @@
             ['Debt', 2],
             ['Other',    7]
           ]);
+          @endif
+          
   
           var options = {
             title: 'My Expenses',
